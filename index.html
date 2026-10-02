@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate GKGS Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        
+        <!-- View 1: Main Menu (Weeks) -->
+        <div id="main-menu-view" class="view active">
+            <header class="rainbow-header">
+                <h1>GKGS Mastery Quiz</h1>
+            </header>
+            <main>
+                <p class="subtitle">Select a Week to begin your journey</p>
+                <div id="weeks-grid" class="grid-container">
+                    <!-- Week buttons injected by JS -->
+                </div>
+            </main>
+        </div>
+
+        <!-- View 2: Sub Menu (Days) -->
+        <div id="sub-menu-view" class="view">
+            <header class="rainbow-header">
+                <button class="return-btn" id="return-to-main">← Return to Menu</button>
+                <h2 id="week-title">Week View</h2>
+            </header>
+            <main>
+                <p class="subtitle">Days 1-6 are new sets. Day 7 is the grand revision!</p>
+                <div id="days-grid" class="grid-container">
+                    <!-- Day buttons injected by JS -->
+                </div>
+            </main>
+        </div>
+
+        <!-- View 3: Quiz Interface -->
+        <div id="quiz-view" class="view">
+            <header class="quiz-header rainbow-header">
+                <button class="return-btn" id="return-to-sub">← Return</button>
+                <div class="progress-wrapper">
+                    <span id="progress-text">0 / 40</span>
+                    <div class="progress-bar-background">
+                        <div id="progress-bar-fill"></div>
+                    </div>
+                </div>
+            </header>
+            
+            <main id="quiz-area">
+                <div class="question-card">
+                    <h3 id="question-text">Loading question...</h3>
+                    <div id="options-container">
+                        <!-- Options injected by JS -->
+                    </div>
+                </div>
+                
+                <div class="quiz-controls">
+                    <button id="prev-btn" class="nav-btn">Previous</button>
+                    <button id="next-btn" class="nav-btn">Next</button>
+                </div>
+            </main>
+        </div>
+
+        <!-- View 4: Results Interface -->
+        <div id="results-view" class="view">
+            <header class="rainbow-header">
+                <h2>Quiz Completed!</h2>
+            </header>
+            <main class="results-content">
+                <h3>Your Score</h3>
+                <div id="score-text">0 / 0</div>
+                <div id="unattempted-container">
+                    Unattempted Questions: <span id="unattempted-text">0</span>
+                </div>
+                
+                <div class="quiz-controls results-controls">
+                    <button id="retry-btn" class="nav-btn">Retry Quiz</button>
+                    <button id="next-quiz-btn" class="nav-btn">Next Quiz</button>
+                    <button id="results-to-main-btn" class="nav-btn">Main Menu</button>
+                </div>
+            </main>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

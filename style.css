@@ -1,0 +1,353 @@
+/* Base and Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0f172a; /* Deep dark blue/black */
+    color: #e2e8f0; /* Off-white text */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+#app-container {
+    width: 100%;
+    max-width: 800px;
+    background: #1e293b; /* Slightly lighter dark panel */
+    min-height: 100vh;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* View Toggling */
+.view {
+    display: none;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.view.active {
+    display: flex;
+}
+
+/* Header */
+.rainbow-header {
+    background: #0f172a; 
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border-bottom: 2px solid #334155;
+}
+
+.rainbow-header h1, .rainbow-header h2 {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.subtitle {
+    text-align: center;
+    margin: 20px 0;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+/* Return Buttons */
+.return-btn {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.05);
+    color: #cbd5e1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.return-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* Grids for Menus */
+main {
+    padding: 20px;
+    flex: 1;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 10px;
+}
+
+/* Default Menu Item Cards */
+.menu-card {
+    background: #0f172a;
+    border: 2px solid #334155;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 
+   Glowing Rainbow Cards (Main Menu & Sub Menu)
+   Uses neon colors on a dark background
+*/
+/* 1: Red */
+#weeks-grid .menu-card:nth-child(7n+1), #days-grid .menu-card:nth-child(7n+1) { border-color: #ff4d4d; color: #ff4d4d; box-shadow: 0 0 8px rgba(255, 77, 77, 0.2); }
+#weeks-grid .menu-card:nth-child(7n+1):hover, #days-grid .menu-card:nth-child(7n+1):hover { box-shadow: 0 0 15px rgba(255, 77, 77, 0.8), inset 0 0 10px rgba(255, 77, 77, 0.2); background: rgba(255, 77, 77, 0.05); }
+
+/* 2: Orange */
+#weeks-grid .menu-card:nth-child(7n+2), #days-grid .menu-card:nth-child(7n+2) { border-color: #ff944d; color: #ff944d; box-shadow: 0 0 8px rgba(255, 148, 77, 0.2); }
+#weeks-grid .menu-card:nth-child(7n+2):hover, #days-grid .menu-card:nth-child(7n+2):hover { box-shadow: 0 0 15px rgba(255, 148, 77, 0.8), inset 0 0 10px rgba(255, 148, 77, 0.2); background: rgba(255, 148, 77, 0.05); }
+
+/* 3: Yellow */
+#weeks-grid .menu-card:nth-child(7n+3), #days-grid .menu-card:nth-child(7n+3) { border-color: #f1c40f; color: #f1c40f; box-shadow: 0 0 8px rgba(241, 196, 15, 0.2); }
+#weeks-grid .menu-card:nth-child(7n+3):hover, #days-grid .menu-card:nth-child(7n+3):hover { box-shadow: 0 0 15px rgba(241, 196, 15, 0.8), inset 0 0 10px rgba(241, 196, 15, 0.2); background: rgba(241, 196, 15, 0.05); }
+
+/* 4: Green */
+#weeks-grid .menu-card:nth-child(7n+4), #days-grid .menu-card:nth-child(7n+4) { border-color: #2ecc71; color: #2ecc71; box-shadow: 0 0 8px rgba(46, 204, 113, 0.2); }
+#weeks-grid .menu-card:nth-child(7n+4):hover, #days-grid .menu-card:nth-child(7n+4):hover { box-shadow: 0 0 15px rgba(46, 204, 113, 0.8), inset 0 0 10px rgba(46, 204, 113, 0.2); background: rgba(46, 204, 113, 0.05); }
+
+/* 5: Blue */
+#weeks-grid .menu-card:nth-child(7n+5), #days-grid .menu-card:nth-child(7n+5) { border-color: #3498db; color: #3498db; box-shadow: 0 0 8px rgba(52, 152, 219, 0.2); }
+#weeks-grid .menu-card:nth-child(7n+5):hover, #days-grid .menu-card:nth-child(7n+5):hover { box-shadow: 0 0 15px rgba(52, 152, 219, 0.8), inset 0 0 10px rgba(52, 152, 219, 0.2); background: rgba(52, 152, 219, 0.05); }
+
+/* 6: Indigo */
+#weeks-grid .menu-card:nth-child(7n+6), #days-grid .menu-card:nth-child(7n+6) { border-color: #9b59b6; color: #9b59b6; box-shadow: 0 0 8px rgba(155, 89, 182, 0.2); }
+#weeks-grid .menu-card:nth-child(7n+6):hover, #days-grid .menu-card:nth-child(7n+6):hover { box-shadow: 0 0 15px rgba(155, 89, 182, 0.8), inset 0 0 10px rgba(155, 89, 182, 0.2); background: rgba(155, 89, 182, 0.05); }
+
+/* 7: Violet */
+#weeks-grid .menu-card:nth-child(7n+7), #days-grid .menu-card:nth-child(7n+7) { border-color: #ff66b3; color: #ff66b3; box-shadow: 0 0 8px rgba(255, 102, 179, 0.2); }
+#weeks-grid .menu-card:nth-child(7n+7):hover, #days-grid .menu-card:nth-child(7n+7):hover { box-shadow: 0 0 15px rgba(255, 102, 179, 0.8), inset 0 0 10px rgba(255, 102, 179, 0.2); background: rgba(255, 102, 179, 0.05); }
+
+/* Mini progress bar for cards */
+.card-progress-container {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 10px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.card-progress-fill {
+    height: 100%;
+    background: #3498db; 
+    width: 0%;
+    transition: width 0.3s, background-color 0.3s;
+    box-shadow: 0 0 5px #3498db;
+}
+
+.card-progress-fill.completed {
+    background: #2ecc71; 
+    box-shadow: 0 0 8px #2ecc71;
+}
+
+/* Quiz Interface */
+.quiz-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px; 
+}
+
+.progress-wrapper {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #e2e8f0;
+}
+
+.progress-bar-background {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-top: 5px;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+}
+
+#progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: #3498db; 
+    transition: width 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 0 10px #3498db;
+}
+
+#progress-bar-fill.completed {
+    background: #2ecc71; 
+    box-shadow: 0 0 10px #2ecc71;
+}
+
+/* Question Area */
+.question-card {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+}
+
+#question-text {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    color: #f8fafc;
+}
+
+/* Options */
+#options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option-btn {
+    text-align: left;
+    padding: 15px;
+    font-size: 1rem;
+    border: 2px solid #334155;
+    background: #1e293b;
+    color: #cbd5e1;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.option-btn:hover:not(:disabled) {
+    background: #283548;
+    border-color: #3498db;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.4);
+}
+
+.option-btn:disabled {
+    cursor: default;
+    opacity: 0.8;
+}
+
+/* Correct and Wrong States (Glowing Neon) */
+.option-btn.correct {
+    background-color: rgba(46, 204, 113, 0.1);
+    border-color: #2ecc71; 
+    color: #2ecc71;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.4), inset 0 0 5px rgba(46, 204, 113, 0.2);
+}
+
+.option-btn.wrong {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-color: #e74c3c; 
+    color: #e74c3c;
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.4), inset 0 0 5px rgba(231, 76, 60, 0.2);
+}
+
+/* Navigation Buttons */
+.quiz-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 1px solid #34495e;
+    border-radius: 5px;
+    background: #2c3e50; 
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: #34495e; 
+    border-color: #5d6d7e;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+}
+
+.nav-btn:disabled {
+    background: #1e293b;
+    border-color: #334155;
+    color: #475569;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* Results Interface */
+.results-content {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.results-content h3 {
+    font-size: 2rem;
+    color: #f8fafc;
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+#score-text {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #3498db;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(52, 152, 219, 0.8);
+}
+
+#unattempted-container {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+#unattempted-text {
+    color: #f39c12; 
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(243, 156, 18, 0.8);
+}
+
+.results-controls {
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap; 
+}
+
+#results-to-main-btn {
+    background: #475569;
+    border-color: #64748b;
+}
+
+#results-to-main-btn:hover {
+    background: #64748b;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+}
